@@ -26,13 +26,37 @@
     <nav class="flex justify-between items-center mb-4">
         <a href="/"><img class="w-24" alt="" class="logo" src="{{ asset('images/logo.png') }}" /></a>
         <ul class="flex space-x-6 mr-6 text-lg">
-            <li>
-                <a href="register.html" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
-            </li>
-            <li>
-                <a href="login.html" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    Login</a>
-            </li>
+            @auth
+                <li>
+                    <span>Welcome {{ auth()->user()->name }}</span>
+                </li>
+
+                <li>
+                    <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
+                        Manage Listings</a>
+                </li>
+
+                <li>
+                    <form action="/logout" class="inline" method="POST">
+                        @csrf
+                        <button class="text-laravel hover:text-black">
+                            <i class="fa-solid fa-sign-out rotate-180 mr-2"></i>
+                            Logout
+                        </button>
+                    </form>
+                </li>
+            @endauth
+
+            @guest
+                <li>
+                    <a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
+                </li>
+
+                <li>
+                    <a href="/login" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        Login</a>
+                </li>
+            @endguest
         </ul>
     </nav>
 

@@ -2,11 +2,11 @@
 
 
 @section('content')
-    @include('partials._search')
-    <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
-    </a>
+    {{-- @include('partials._search') --}}
     <div class="mx-4">
-        <x-card>
+        <x-card class="max-w-[700px] mx-auto">
+            <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
+            </a>
 
 
             <div class="flex flex-col items-center justify-center text-center">
@@ -47,7 +47,7 @@
 
         </x-card>
 
-        <x-card class="mt-4 p-2 flex space-x-6">
+        {{-- <x-card class="mt-4 p-2 flex space-x-6">
             <a href="/listings/{{ $listing->id }}/edit">
                 <i class="fa-solid fa-pencil"></i> Edit
             </a>
@@ -59,6 +59,6 @@
                     <i class="fa-solid fa-trash"></i> Delete
                 </button>
             </form>
-        </x-card>
+        </x-card> --}}
     </div>
 @endsection
